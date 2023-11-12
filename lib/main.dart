@@ -1,97 +1,64 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:weatherapp/providers/CitiesProvider.dart';
+import 'package:weatherapp/providers/CitiesWeatherProvider.dart';
+import 'package:weatherapp/providers/WeatherProvider.dart';
+import 'package:weatherapp/screens/cities_screen.dart';
+import 'package:weatherapp/screens/weather_screen.dart';
 void main() {
-  runApp(const MyApp());
+  Paint.enableDithering = true;
+  runApp(
+      ProviderScope(child: MyApp())
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    const buttonColor = Color.fromRGBO(36, 54, 113, 1);
+    const iconColor = Color.fromRGBO(17, 49, 117, 1);
+    const accentColor = Color.fromRGBO(255, 255, 255, 1);
+    const splashColor = Color.fromRGBO(0, 0, 0, .3);
+    const focusColor = Color.fromRGBO(0, 0, 0, 1);
+    const primaryColor = Color.fromRGBO(236, 108, 5, 1);
+    const headingColors = Colors.white;
+    const headingMediumColors = Color.fromRGBO(204, 202, 220, 1);
+    const headingSmallColors = Color.fromRGBO(94, 88, 145, 1);
+    const textColors = Colors.white;
+    final textTheme = TextTheme(
+      displayLarge:  TextStyle(color: headingColors , fontSize: 28, ),
+
+      displayMedium:
+      TextStyle(color: headingMediumColors, fontWeight: FontWeight.w600, fontSize: 16),
+      displaySmall:
+      TextStyle(color: headingSmallColors, fontWeight: FontWeight.w500, fontSize: 12),
+      headlineMedium:
+      TextStyle(color: headingMediumColors, fontWeight: FontWeight.bold),
+      headlineSmall:
+      TextStyle(color: headingSmallColors, fontWeight: FontWeight.bold),
+      titleLarge:
+      TextStyle(color: headingColors, fontWeight: FontWeight.bold),
+      bodySmall: TextStyle(color: textColors),
+      bodyLarge: TextStyle(color: textColors),
+      bodyMedium: TextStyle(color: textColors),
+    );
+
+
+
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Weather App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+          fontFamily: 'Inter',
+          primaryColor: primaryColor,
+          textTheme: GoogleFonts.poppinsTextTheme(
+           textTheme
+          ) ,),
+      home: CitiesScreen()
     );
+
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
 
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
-}
