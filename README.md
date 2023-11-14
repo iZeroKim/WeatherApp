@@ -61,10 +61,11 @@ To install these dependencies, update your pubspec.yaml file:
 
 ##Screenshots
 
-![Screenshot|690x473](https://github.com/iZeroKim/WeatherApp/assets/58791465/d930adc7-b3f5-43d5-92f5-675aafe53f3e)
+<img src="https://github.com/iZeroKim/WeatherApp/assets/58791465/fbdd3a5b-6d8f-4d05-a2c6-70a77b1d218a" data-canonical-src="https://github.com/iZeroKim/WeatherApp/assets/58791465/fbdd3a5b-6d8f-4d05-a2c6-70a77b1d218a" width="200" height="400" />
 
 
-![Screenshot_1699816700|690x473](https://github.com/iZeroKim/WeatherApp/assets/58791465/a8168c75-ef15-46fe-b7d1-123ce183996f=100x20)
+<img src="https://github.com/iZeroKim/WeatherApp/assets/58791465/a127e42b-951f-4ec0-92b1-31fa08b3d786" data-canonical-src="https://github.com/iZeroKim/WeatherApp/assets/58791465/a127e42b-951f-4ec0-92b1-31fa08b3d786" width="200" height="400" />
+
 
 
 
